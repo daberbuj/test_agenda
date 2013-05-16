@@ -1,4 +1,7 @@
 TestAgenda::Application.routes.draw do
+  resources :data_types
+
+
   resources :people
 
 
