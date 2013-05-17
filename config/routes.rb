@@ -1,7 +1,8 @@
 TestAgenda::Application.routes.draw do
+
+  root :to => 'application#index'
+
   resources :data_types
-
-
   resources :people
 
 
