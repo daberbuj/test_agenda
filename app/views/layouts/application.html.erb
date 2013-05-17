@@ -8,8 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-aca va el toolbar
+<p>aca va el toolbar</p>
+<p>esto no funca link_to 'Personas' :controller => "people", :action => "index"</p>
+<%= link_to 'Personas', people_path %>
+<%= link_to 'Tipos de Dato', data_types_path %>
 <%= yield %>
-asdasd
+<p>texto al final</p>
 </body>
 </html>
