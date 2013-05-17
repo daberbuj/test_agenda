@@ -15,6 +15,15 @@
   <%= @person.birth_date %>
 </p>
 
+<p>
+  <b>Address:</b>
+  <%= @person.addresses.empty? ? 'none' :@person.addresses.first.street %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @person.phones.empty? ? 'none' :@person.phones.first.number %>
+</p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

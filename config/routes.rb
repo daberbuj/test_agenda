@@ -3,7 +3,13 @@ TestAgenda::Application.routes.draw do
   root :to => 'application#index'
 
   resources :data_types
-  resources :people
+  resources :people do
+    put 'block', on: :member
+    get 'filter', on: :collection
+  end
+
+  #match '/people/:id/block' => 'people#block', :as => 'block_person', :via => :put
+  #put '/people/:id/block' => 'people#block', :as => 'block_person'
 
 
   # The priority is based upon order of creation:

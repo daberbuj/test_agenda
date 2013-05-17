@@ -2,8 +2,12 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
 
+    @people = Person.scoped
+    @people = @people.where("name LIKE ?", "%#{params[:name]}%" )  if params[:name]
+    @people = @people.where(blocked: params[:blocked]=='true') if params[:blocked]
+
+    #@search = Person.where(:blocked => params[:is_block] )
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @people }
@@ -80,4 +84,17 @@ class PeopleController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def block
+    @person = Person.find(params[:id])
+    @person.blocked=  !@person.blocked
+    @person.save
+
+    respond_to do |format|
+      format.html { redirect_to people_url, notice: 'Person was successfully blocked.' }
+      format.json { head :no_content }
+    end
+  end
+
+
 end
