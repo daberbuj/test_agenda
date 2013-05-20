@@ -5,7 +5,6 @@ TestAgenda::Application.routes.draw do
   resources :data_types
   resources :people do
     put 'block', on: :member
-    get 'filter', on: :collection
   end
 
   #match '/people/:id/block' => 'people#block', :as => 'block_person', :via => :put

@@ -3,8 +3,8 @@
 <%= form_tag(people_path, :method => "get") do %>
     <%= label_tag(:name, "Filter for:") %>
     <%= text_field_tag(:name) %>
-    <%= submit_tag("Filter") %>
     <%= select_tag(:is_block, options_for_select([['Block', true], ['UnBlock', false]])) %>
+    <%= submit_tag("Filter") %>
 <% end %>
 
 <p id="notice"><%= notice %></p>
